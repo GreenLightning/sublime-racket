@@ -1,5 +1,11 @@
 {
 	"cmd": ["racket", "$file"],
 	"selector": "source.racket",
-	"file_regex": "^(.*?):(\\d+):(\\d+):\\s(.|\\n)+"
+	"file_regex": "^(.*?):(\\d+):(\\d+):\\s(.|\\n)+",
+	"variants": [
+		{
+			"name": "Test",
+			"cmd": ["raco", "test", "$file"]
+		}
+	]
 }
