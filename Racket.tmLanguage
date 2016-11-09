@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -11,16 +11,18 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>string.quoted.double.source.racket</string>
-				</dict>
-			</dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.source.racket</string>
+		</dict>
+		<dict>
 			<key>match</key>
-			<string>[^\\](\"[^\"]*\")</string>
+			<string>'\S+</string>
+			<key>name</key>
+			<string>string.quoted.single.symbol.source.racket</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -49,85 +51,23 @@
 					<key>name</key>
 					<string>keyword.source.racket</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function</string>
-				</dict>
 			</dict>
 			<key>match</key>
-			<string>\((define)\s+\(([a-zA-Z0-9_\-?\+^]+)\s*</string>
-			<key>name</key>
-			<string>meta.function.source.racket</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.source.racket</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\((struct)\s+([a-zA-Z0-9_\-?\+^]+)\s+</string>
-			<key>name</key>
-			<string>meta.struct.source.racket</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.source.racket</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>[\s\(](if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error|lang)[\s\)]</string>
+			<string>\b(?&lt;!-)(if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)[\s\)]</string>
 			<key>name</key>
 			<string>meta.keywords.source.racket</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.language.source.racket</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>[\s\(](true|false|empty|null)[\s\)]</string>
+			<string>\b(true|false|empty|cons)[\s\)]</string>
+			<key>name</key>
+			<string>constant.language.source.racket</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.language.source.racket</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>[\s\(](#t|#f)[\s\)]</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.language.source.racket</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(#\\[a-zA-Z0-9_\-?\+\.\!\"]+)</string>
+			<string>\b([-+]?[0-9]+\.[0-9]+([eE][-+]?[0-9]+)?)\b</string>
+			<key>name</key>
+			<string>constant.numeric.float.source.racket</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -142,14 +82,6 @@
 			<string>$\n</string>
 			<key>name</key>
 			<string>comment.line.documentation.source.racket</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>#\|</string>
-			<key>end</key>
-			<string>\|#</string>
-			<key>name</key>
-			<string>comment.block.source.racket</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

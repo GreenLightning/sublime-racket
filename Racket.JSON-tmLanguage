@@ -6,6 +6,9 @@
      "begin": "\"",
      "end": "\""
     },
+    {"name": "string.quoted.single.symbol.source.racket",
+     "match": "'\\S+"
+    },
     {"name": "meta.variable.source.racket",
      "match": "\\((define)\\s+([a-zA-Z0-9_\\-?\\+^]+)\\s*",
      "captures": {
@@ -14,13 +17,16 @@
         }
     },
     {"name": "meta.keywords.source.racket",
-     "match": "\\b(if|lambda|cond|define|type-case|let|letrec|let!|\\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)[\\s\\)]",
+     "match": "\\b(?<!-)(if|lambda|cond|define|type-case|let|letrec|let!|\\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)[\\s\\)]",
      "captures": {
         "1": {"name": "keyword.source.racket"}
      }
     },
     {"name": "constant.language.source.racket",
      "match": "\\b(true|false|empty|cons)[\\s\\)]"
+    },
+    {"name": "constant.numeric.float.source.racket",
+     "match": "\\b([-+]?[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?)\\b"
     },
     {"name": "constant.numeric.integer.source.racket",
      "match": "\\b(0|([1-9][0-9_]*))\\b"
