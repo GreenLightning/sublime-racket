@@ -20,7 +20,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>'\S+</string>
+			<string>'[^\s)]+</string>
 			<key>name</key>
 			<string>string.quoted.single.symbol.source.racket</string>
 		</dict>
@@ -44,22 +44,14 @@
 			<string>meta.variable.source.racket</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.source.racket</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>\b(?&lt;!-)(if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)(?=[\s\)])</string>
+			<string>(?&lt;=[\[(\s])(if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)(?=[\s)\]])</string>
 			<key>name</key>
-			<string>meta.keywords.source.racket</string>
+			<string>keyword.source.racket</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(true|false|empty|cons)(?=[\s\)])</string>
+			<string>(?&lt;=[\[(\s])(true|false|empty|cons)(?=[\s)\]])</string>
 			<key>name</key>
 			<string>constant.language.source.racket</string>
 		</dict>

@@ -7,7 +7,7 @@
      "end": "\""
     },
     {"name": "string.quoted.single.symbol.source.racket",
-     "match": "'\\S+"
+     "match": "'[^\\s)]+"
     },
     {"name": "meta.variable.source.racket",
      "match": "\\((define)\\s+([a-zA-Z0-9_\\-?\\+^]+)\\s*",
@@ -16,14 +16,11 @@
         "2": {"name": "entity.name.variable.source.racket"}
         }
     },
-    {"name": "meta.keywords.source.racket",
-     "match": "\\b(?<!-)(if|lambda|cond|define|type-case|let|letrec|let!|\\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)(?=[\\s\\)])",
-     "captures": {
-        "1": {"name": "keyword.source.racket"}
-     }
+    {"name": "keyword.source.racket",
+     "match": "(?<=[\\[(\\s])(if|lambda|cond|define|type-case|let|letrec|let!|\\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)(?=[\\s)\\]])"
     },
     {"name": "constant.language.source.racket",
-     "match": "\\b(true|false|empty|cons)(?=[\\s\\)])"
+     "match": "(?<=[\\[(\\s])(true|false|empty|cons)(?=[\\s)\\]])"
     },
     {"name": "constant.numeric.float.source.racket",
      "match": "\\b([-+]?[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?)\\b"
