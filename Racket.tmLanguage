@@ -53,13 +53,13 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(?&lt;!-)(if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)[\s\)]</string>
+			<string>\b(?&lt;!-)(if|lambda|cond|define|type-case|let|letrec|let!|\#lang|require|test|else|first|rest|define-type|define-type-alias|define-struct|not|local|error)(?=[\s\)])</string>
 			<key>name</key>
 			<string>meta.keywords.source.racket</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(true|false|empty|cons)[\s\)]</string>
+			<string>\b(true|false|empty|cons)(?=[\s\)])</string>
 			<key>name</key>
 			<string>constant.language.source.racket</string>
 		</dict>
